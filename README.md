@@ -7,6 +7,9 @@ Minimally, the server should provide the following interface to the peer clients
 • search (file name) -- this procedure should search the index and return all the matching peers to the requestor.
 2. A peer. A peer is both a client and a server. As a client, the user specifies a file name with the indexing server using "lookup". The indexing server returns a list of all other peers that hold the file. The user can pick one such peer and the client then connects to this peer and downloads the file. As a server, the peer waits for requests from other peers and sends the requested file when receiving a request. Minimally, the peer server should provide the following interface to the peer client:
 • obtain (file name) -- invoked by a peer to download a file from another peer.
+
 Other requirements:
+
 • Both the indexing server and a peer server should be able to accept multiple client requests at the same time. This could be easily done using threads. Be aware of the thread synchronizing issues to avoid inconsistency or deadlock in your system.
+
 • No GUIs are required. Simple command line interfaces are fine
